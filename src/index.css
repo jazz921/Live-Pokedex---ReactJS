@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+* {
+  font-family: 'VT323', monospace;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url('./assets//body-bg-2.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px 10%;
+}
+
+nav {
+  background: #ef5350;
+  display: grid;
+  place-content: center;
+  padding: 5px 0;
+  display: fixed;
+}
+
+nav > img {
+  width: 120px
+}
+
+.pokemon-card {
+  margin: 5px;
+  width: 200px;
+  height: 200px;
+  border: 1px solid grey;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, .8);
+  background-color: rgba(255, 255, 255, .75);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 10px;
+  transition: .3s ease-in-out
+}
+
+.pokemon-card:hover {
+  transform: translateY(-2%);
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.pokemon-card > img {
+  object-fit: contain;
+  max-width: 70%;
+  max-height: 70%;
+}
+
+.home {
+  display: grid;
+  place-items: center;
+}
+
+.btn {
+  background-color: #ef5350;
+  color: white;
+  font-size: 25px;
+  margin: 0px 10px;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-container {
+  margin-top: 20px;
+  background: rgba(243, 243, 243, .5);
+  border: 2px outset white;
+  border-radius: 5px;
+  width: 60%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+  padding: 20px;
+}
+
+.info > a {
+  background: #ef5350;
+  font-size: 22px;
+  color: white;
+  text-transform: uppercase;
+  margin-top: 20px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.stats > table {
+  border-collapse: collapse;
+  text-align: center;
+  font-size: 25px;
+}
+
+.stats > h2 {
+  margin-bottom: 5px;
+}
+
+.stats > table > th, td {
+  padding: 5px 10px;
+}
+
+.img > h2 {
+  font-size: 25px;
+  text-align: center;
+}
+.img div > p {
+  padding-left: 50px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    padding: 20px 5%;
+  }
+  .info-container {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    width: 90%;
+  }
+
+  .info > a {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+}
