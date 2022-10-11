@@ -2,6 +2,7 @@ import React from "react";
 import PokemonCard from "../component/PokemonCard";
 import Pagination from "../Pagination";
 import { Link } from "react-router-dom";
+import Footer from "../component/Footer";
 
 const Home = ({ pokemons, nextButton, prevButton, prevURL }) => {
   return (
@@ -23,6 +24,7 @@ const Home = ({ pokemons, nextButton, prevButton, prevURL }) => {
         prevButton={prevButton}
         prevURL={prevURL}
       />
+      <Footer />
     </div>
   );
 };
