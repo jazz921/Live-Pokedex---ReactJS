@@ -133,6 +133,15 @@ a {
   font-weight: bold;
 }
 
+.footer {
+  background: #ef5350;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 5px;;
+}
+
 @media only screen and (max-width: 768px) {
   .container {
     padding: 20px 5%;
@@ -143,7 +152,20 @@ a {
     justify-content: center;
     width: 90%;
   }
-
+  .pokemon-card {
+    margin: 5px;
+    width: 100px;
+    height: 100px;
+  }
+  .pokemon-card > h1 {
+    font-size: 18px;
+  }
+  .pokemon-card > img {
+    width: 100%;
+  }
+  body {
+    width: 100%;
+  }
   .info > a {
     position: absolute;
     top: 10px;
