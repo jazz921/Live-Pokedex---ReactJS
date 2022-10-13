@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { Navbar } from "./component/componentExports";
-import { Home, Info } from "./pages/pageExports";
+import { Home, Info, Result } from "./pages/pageExports";
 
 const API_URL = "https://pokeapi.co/api/v2/pokemon?limit=10";
 
@@ -10,10 +10,17 @@ function App() {
   const [currentURL, setCurrentURL] = useState(API_URL);
   const [nextURL, setNextURL] = useState("");
   const [prevURL, setPrevURL] = useState("");
+  const [text, setText] = useState("");
+  const [resultPokemon, setResultPokemon] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchAPI();
   }, [currentURL]);
+
+  useEffect(() => {
+    searchHandler();
+  }, [resultPokemon]);
 
   const fetchAPI = async () => {
     const res = await fetch(currentURL);
@@ -31,7 +38,6 @@ function App() {
         array.push(response);
         setPokemons([...array]);
       });
-      array = [];
     };
     getPokemons(data.results);
   };
@@ -41,6 +47,18 @@ function App() {
   };
   const prevButton = () => {
     setCurrentURL(prevURL);
+  };
+
+  const searchHandler = (v) => {
+    if (!v) {
+      return;
+    } else {
+      fetch(`https://pokeapi.co/api/v2/pokemon/${v}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setResultPokemon(data);
+        });
+    }
   };
 
   return (
@@ -55,10 +73,19 @@ function App() {
               nextButton={nextButton}
               prevURL={prevURL}
               prevButton={prevButton}
+              text={text}
+              setText={setText}
+              searchHandler={searchHandler}
+              resultPokemon={resultPokemon}
+              setResultPokemon={setResultPokemon}
             />
           }
         />
         <Route path="/:name" element={<Info pokemons={pokemons} />} />
+        <Route
+          path="/result"
+          element={<Result resultPokemon={resultPokemon} />}
+        />
       </Routes>
     </div>
   );

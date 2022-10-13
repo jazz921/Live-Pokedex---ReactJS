@@ -71,6 +71,7 @@ const Info = ({ pokemons }) => {
             ))}
           </div>
         </div>
+        
       </div>
 
       <Link to="/">Back</Link>
