@@ -1,6 +1,6 @@
 # Live-Pokedex---ReactJS
 Live Pokedex made with Pokeapi and React Router
-URL: https://pokedex-app-ashy.vercel.app/
+URL: https://pokedex-web-app-sigma.vercel.app/
 
 ![Untitled](https://user-images.githubusercontent.com/84715428/195603152-c59e4afb-b915-45bb-8415-22d0fee7745c.png)
 
